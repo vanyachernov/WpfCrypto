@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:market"
         mc:Ignorable="d"
-        Title="Currencies" Height="568" Width="962"
-        WindowStartupLocation="CenterScreen">
+        Title="Currencies" Height="699" Width="1517"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid RenderTransformOrigin="0.499,0.522">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="479*"/>
@@ -24,7 +24,21 @@
         </DockPanel>
         <Label Content="Exchange currencies" HorizontalAlignment="Left" Margin="36,13,0,0" VerticalAlignment="Top" Background="#FF2F2884" FontFamily="Segoe UI" FontSize="20
                " Foreground="White"/>
-        <DockPanel LastChildFill="False" Grid.ColumnSpan="2"/>
+        <DockPanel LastChildFill="False" Grid.ColumnSpan="2">
+            <DataGrid x:Name="GridCurrencies" AutoGenerateColumns="True" RenderTransformOrigin="0.5,0.5" Width="1518" Height="424" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False" >
+                <DataGrid.CellStyle>
+                    <Style/>
+                </DataGrid.CellStyle>
+                <DataGrid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.073"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-0.611"/>
+                    </TransformGroup>
+                </DataGrid.RenderTransform>
+            </DataGrid>
+        </DockPanel>
 
     </Grid>
 </Window>
