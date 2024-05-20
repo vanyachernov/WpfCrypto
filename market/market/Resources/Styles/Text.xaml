@@ -2,21 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="Text_Style"
-           TargetType="TextBlock">
+       TargetType="TextBlock">
 
         <Setter Property="FontFamily"
-                Value="/Fonts/#Rubik" />
+            Value="/Fonts/#Rubik" />
         <Setter Property="VerticalAlignment"
-                Value="Center" />
+            Value="Center" />
         <Setter Property="HorizontalAlignment"
-                Value="Left" />
+            Value="Left" />
         <Setter Property="Foreground"
-                Value="#D8D8D8" />
-        <Setter Property="FontFamily"
-                Value="18" />
+            Value="#DBDBDB" />
+        <Setter Property="FontSize"
+            Value="18" />
         <Setter Property="Margin"
-                Value="70,0,0,0" />
+            Value="70,0,0,0" />
 
     </Style>
-    
+
 </ResourceDictionary>

@@ -1,11 +1,5 @@
-﻿using market.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace market
 {
@@ -19,32 +13,11 @@ namespace market
             InitializeComponent();
         }
 
-        private async Task<List<Currency>> GetExchangeDataAsync()
+        private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            using (var client = new HttpClient())
+            if (MessageBox.Show("Are you really want to exit?", "CoinCap API", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                try
-                {
-                    var endPoint = "https://api.coincap.io/v2/assets";
-                    var response = await client.GetAsync(endPoint);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var assetData = JsonConvert.DeserializeObject<CurrencyData>(json);
-                        return assetData.Currencies;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error fetching data from API");
-                        return new List<Currency>();
-                    }
-                }
-                catch (HttpRequestException e)
-                {
-                    MessageBox.Show($"There is a problem! \n{e.Message}");
-                    return new List<Currency>();
-                }
+                Application.Current.Shutdown();
             }
         }
     }

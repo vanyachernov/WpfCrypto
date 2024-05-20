@@ -1,8 +1,8 @@
-﻿using market.Models;
+﻿using market.Utilities;
 
 namespace market.ViewModels
 {
-    public class ConverterViewModel : Utilities.ViewModelBase
+    public class ConverterViewModel : ViewModelBase
     {
 
     }

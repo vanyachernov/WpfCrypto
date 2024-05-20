@@ -4,20 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:market.ViewModels"
+        xmlns:Menu="clr-namespace:market.Utilities"
         mc:Ignorable="d"
-        Title="{Binding Title}" 
+        Title="CoinAPI" 
         Height="800" 
         Width="1000"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
 
+    <Window.DataContext>
+        <vm:NavigationViewModel />
+    </Window.DataContext>
+    
     <Grid>
 
         <!-- // Window Border // -->
 
-        <Border Background="#212529"
+        <Border Background="#FF1E6352"
                 CornerRadius="20"/>
 
         <Grid>
@@ -26,9 +31,67 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="228"/>
-                <ColumnDefinition Width="622"/>
+                <ColumnDefinition Width="772"/>
             </Grid.ColumnDefinitions>
             
+            
+            <!-- // Navigation Panel // -->
+
+            <Grid HorizontalAlignment="Left"
+                  Width="228">
+                
+                <Border Background="#FF1B4E41"
+                    CornerRadius="20,0,0,20" />
+                
+                <StackPanel Height="400"
+                            Width="228">
+                    
+                    <!-- // Currencies // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding CurrenciesCommand}"
+                              IsChecked="True">
+                        <Grid>
+                            <Image Source="../../Resources/Images/currencies_bg.png"
+                                   Style="{StaticResource Image_Style}" />
+                            <TextBlock Text="Currencies"
+                                Style="{StaticResource Text_Style}" />
+                        </Grid>
+                    </Menu:Btn>
+
+                    <!-- // Converter // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding ConverterCommand}" >
+                        <Grid>
+                            <Image Source="../../Resources/Images/converter_bg.png"
+                                Style="{StaticResource Image_Style}" />
+                            <TextBlock Text="Converter"
+                                Style="{StaticResource Text_Style}" />
+                        </Grid>
+                    </Menu:Btn>
+
+                    <!-- // Exit // -->
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding ConverterCommand}"
+                              Click="Btn_Click"> 
+                        <Grid>
+                            <Image Source="../../Resources/Images/shutdown.png"
+                                Style="{StaticResource Image_Style}" />
+                            <TextBlock Text="Exit"
+                                Style="{StaticResource Text_Style}" />
+                        </Grid>
+                    </Menu:Btn>
+
+                </StackPanel>
+                
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+            </Grid>
+
+
         </Grid>
+        
+        
     </Grid>
 </Window>

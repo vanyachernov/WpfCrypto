@@ -3,12 +3,12 @@
                     xmlns:vm="clr-namespace:market.ViewModels"
                     xmlns:view="clr-namespace:market.Views.Controls">
 
+    <DataTemplate DataType="{x:Type vm:CurrenciesViewModel}">
+        <view:Currencies />
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:ConverterViewModel}">
         <view:Converter />
     </DataTemplate>
 
-    <!--<DataTemplate DataType="{x:Type vm:}">
-        
-    </DataTemplate>-->
-    
 </ResourceDictionary>

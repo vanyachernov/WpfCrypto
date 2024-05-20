@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Controls\Currencies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,12 +94,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\CurrencyService.cs" />
     <Compile Include="Utilities\Btn.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModels\ConverterViewModel.cs" />
+    <Compile Include="ViewModels\CurrenciesViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
     <Compile Include="Views\Controls\Converter.xaml.cs">
       <DependentUpon>Converter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\Currencies.xaml.cs">
+      <DependentUpon>Currencies.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -127,13 +137,20 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Rubik-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Rubik-Medium.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
-    <Folder Include="Resources\Images\" />
+    <Resource Include="Resources\Images\shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\converter_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\currencies_bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

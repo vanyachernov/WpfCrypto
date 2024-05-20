@@ -9,11 +9,11 @@
 
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="Resources/Styles/Page.xaml"/>
-                <ResourceDictionary Source="Resources/Styles/Button.xaml"/>
-                <ResourceDictionary Source="Resources/Styles/Text.xaml"/>
-                <ResourceDictionary Source="Resources/Styles/Image.xaml"/>
-                <ResourceDictionary Source="Utilities/DataTemplate.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/Page.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Button.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Text.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Image.xaml" />
+                <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
             
