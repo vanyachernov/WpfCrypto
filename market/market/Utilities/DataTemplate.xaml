@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:market.ViewModels"
+                    xmlns:view="clr-namespace:market.Views.Controls">
+
+    <DataTemplate DataType="{x:Type vm:ConverterViewModel}">
+        <view:Converter />
+    </DataTemplate>
+
+    <!--<DataTemplate DataType="{x:Type vm:}">
+        
+    </DataTemplate>-->
+    
+</ResourceDictionary>

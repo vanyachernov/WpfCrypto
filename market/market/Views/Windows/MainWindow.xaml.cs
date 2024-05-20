@@ -47,12 +47,5 @@ namespace market
                 }
             }
         }
-
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            var assets = await GetExchangeDataAsync();
-
-            GridCurrencies.ItemsSource = assets;
-        }
     }
 }
