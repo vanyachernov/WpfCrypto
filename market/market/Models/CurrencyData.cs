@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace market.Models
 {
     public class CurrencyData
     {
         [JsonProperty("Data")]
-        public List<Currency> Currencies { get; set; }
+        public ObservableCollection<Currency> Currencies { get; set; }
 
         [JsonProperty("Timestamp")]
         public long Timestamp { get; set; }

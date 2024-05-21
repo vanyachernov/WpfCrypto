@@ -22,7 +22,7 @@
 
         <!-- // Window Border // -->
 
-        <Border Background="#FF1E6352"
+        <Border Background="#523634"
                 CornerRadius="20"/>
 
         <Grid>
@@ -39,8 +39,8 @@
 
             <Grid HorizontalAlignment="Left"
                   Width="228">
-                
-                <Border Background="#FF1B4E41"
+
+                <Border Background="#FF733B37"
                     CornerRadius="20,0,0,20" />
                 
                 <StackPanel Height="400"
@@ -86,7 +86,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
+                <ContentControl Grid.Row="1" x:Name="Pages" Content="{Binding CurrentView}" />
             </Grid>
 
 

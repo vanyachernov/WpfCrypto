@@ -1,7 +1,8 @@
 ﻿using market.Models;
 using market.Services;
 using market.Utilities;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,10 +14,48 @@ namespace market.ViewModels
         private readonly CurrencyData _currencyData;
         private readonly CurrencyService _currencyService;
 
-        public List<Currency> Currencies
+        private ObservableCollection<Currency> _filteredCurrencies;
+        private string _searchQuery;
+
+        /// <summary>
+        /// Full data coins storage.
+        /// </summary>
+        public ObservableCollection<Currency> Currencies
         {
             get { return _currencyData.Currencies; }
-            set { _currencyData.Currencies = value; OnPropertyChanged(); }
+            set
+            {
+                _currencyData.Currencies = value;
+                OnPropertyChanged();
+                FilterCurrencies();
+            }
+        }
+
+        /// <summary>
+        /// Filtered coins storage after searching.
+        /// </summary>
+        public ObservableCollection<Currency> FilteredCurrencies
+        {
+            get { return _filteredCurrencies; }
+            set
+            {
+                _filteredCurrencies = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Search query field.
+        /// </summary>
+        public string SearchQuery
+        {
+            get { return _searchQuery; }
+            set
+            {
+                _searchQuery = value;
+                OnPropertyChanged();
+                FilterCurrencies();
+            }
         }
 
         /// <summary>
@@ -28,6 +67,7 @@ namespace market.ViewModels
             try
             {
                 Currencies = await _currencyService.GetAssetsDataAsync();
+                FilterCurrencies();
             }
             catch (HttpRequestException e)
             {
@@ -35,11 +75,26 @@ namespace market.ViewModels
             }
         }
 
+        private void FilterCurrencies()
+        {
+            if (_currencyData?.Currencies == null)
+                return;
+
+            var filteredCurrencies = string.IsNullOrWhiteSpace(_searchQuery)
+                ? new ObservableCollection<Currency>(_currencyData.Currencies)
+                : new ObservableCollection<Currency>(_currencyData.Currencies.Where(c => c.Id.ToLower().Contains(_searchQuery.ToLower()) || c.Name.ToLower().Contains(_searchQuery.ToLower())));
+
+            FilteredCurrencies = filteredCurrencies;
+        }
+
+        /// <summary>
+        /// Initialize a CurrenciesViewModel instance.
+        /// </summary>
         public CurrenciesViewModel()
         {
             _currencyData = new CurrencyData
             {
-                Currencies = new List<Currency>(),
+                Currencies = new ObservableCollection<Currency>(),
                 Timestamp = new long()
             };
             _currencyService = new CurrencyService();

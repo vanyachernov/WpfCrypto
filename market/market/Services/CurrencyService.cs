@@ -1,6 +1,8 @@
 ﻿using market.Models;
 using Newtonsoft.Json;
-using System.Collections.Generic;
+using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,7 +22,7 @@ namespace market.Services
         /// Get a list of currencies by popularity.
         /// </summary>
         /// <returns>List of currencies.</returns>
-        public async Task<List<Currency>> GetAssetsDataAsync()
+        public async Task<ObservableCollection<Currency>> GetAssetsDataAsync()
         {
             try
             {
@@ -31,18 +33,28 @@ namespace market.Services
                 {
                     var json = await response.Content.ReadAsStringAsync();
                     var assetData = JsonConvert.DeserializeObject<CurrencyData>(json);
+
+                    foreach (var currency in assetData.Currencies)
+                    {
+                        if (decimal.TryParse(currency.PriceUsd, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal price))
+                        {
+                            price = Math.Round(price, 2);
+                            currency.PriceUsd = $"{price.ToString(CultureInfo.InvariantCulture)} $";
+                        }
+                    }
+
                     return assetData.Currencies;
                 }
                 else
                 {
                     MessageBox.Show("Error fetching data from API");
-                    return new List<Currency>();
+                    return new ObservableCollection<Currency>();
                 }
             }
             catch (HttpRequestException e)
             {
                 MessageBox.Show($"There is a problem! \n{e.Message}");
-                return new List<Currency>();
+                return new ObservableCollection<Currency>();
             }
         }
     }

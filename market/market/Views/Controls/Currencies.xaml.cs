@@ -14,6 +14,7 @@ namespace market.Views.Controls
         {
             InitializeComponent();
             _currenciesModel = new CurrenciesViewModel();
+            DataContext = _currenciesModel;
         }
 
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
