@@ -104,7 +104,12 @@
 
     </Style>
 
-    <Style x:Key="ExitApp"
+    <ImageBrush x:Key="close_app_def"
+            ImageSource="../Images/shutdown.png"
+            Stretch="None" 
+            Opacity="1" />
+
+    <Style x:Key="ExitApp_Style"
        TargetType="{x:Type Button}">
 
         <Setter Property="Height"
@@ -133,22 +138,17 @@
                     <ControlTemplate.Triggers>
 
                         <Trigger Property="IsMouseOver"
-                             Value="True">
+                                Value="True">
 
                             <Setter Property="Background"
                                 TargetName="border"
-                                Value="{StaticResource close_app_mo}" />
+                                Value="{StaticResource close_app_def}" />
+
+                            <Setter Property="Opacity"
+                                    Value="0.6" />
 
                         </Trigger>
 
-                        <Trigger Property="IsPressed"
-                             Value="True">
-
-                            <Setter Property="Background"
-                                TargetName="border"
-                                Value="{StaticResource close_app_mo}" />
-
-                        </Trigger>
 
                     </ControlTemplate.Triggers>
 

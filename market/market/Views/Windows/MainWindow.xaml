@@ -7,7 +7,7 @@
         xmlns:Menu="clr-namespace:market.Utilities"
         mc:Ignorable="d"
         Title="CoinAPI" 
-        Height="800" 
+        Height="650" 
         Width="1000"
         AllowsTransparency="True"
         Background="Transparent"
@@ -23,7 +23,8 @@
         <!-- // Window Border // -->
 
         <Border Background="#523634"
-                CornerRadius="20"/>
+                CornerRadius="20"
+                Padding="10"/>
 
         <Grid>
             
@@ -42,10 +43,10 @@
 
                 <Border Background="#FF733B37"
                     CornerRadius="20,0,0,20" />
-                
+
                 <StackPanel Height="400"
                             Width="228">
-                    
+
                     <!-- // Currencies // -->
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding CurrenciesCommand}"

@@ -5,12 +5,51 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:market.ViewModels"
              mc:Ignorable="d" 
-             d:DesignWidth="622"
+             d:DesignWidth="722"
              d:DesignHeight="800"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
         <vm:ConverterViewModel />
     </UserControl.DataContext>
-    
+
+    <Grid Margin="20,10,20,10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" 
+        Background="#B6452C" 
+        CornerRadius="20,20,0,0" 
+        Padding="10">
+
+            <!-- // Form Title // -->
+            <Grid>
+                <TextBlock Text="Coin converter"
+                   Style="{StaticResource TextCaption_Style}" />
+            </Grid>
+
+        </Border>
+
+        <Border Grid.Row="1"
+        Padding="20"
+        CornerRadius="0,0,20,20">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB35844" Offset="0"/>
+                    <GradientStop Color="#FFBF4B30" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!-- // Main Page // -->
+            <Grid>
+                
+
+            </Grid>
+        </Border>
+
+    </Grid>
+
 </UserControl>

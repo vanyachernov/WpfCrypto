@@ -22,8 +22,9 @@
                 CornerRadius="20,20,0,0" 
                 Padding="10">
 
+            <!-- // Form Title // -->
             <Grid>
-                <TextBlock Text="There's going to be coin analytics here."
+                <TextBlock Text="Coin analytics"
                            Style="{StaticResource TextCaption_Style}" />
             </Grid>
 
@@ -39,27 +40,33 @@
                 </LinearGradientBrush>
             </Border.Background>
 
+            <!-- // Main Page // -->
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <!-- // Search Section // -->
                 <StackPanel Orientation="Horizontal">
                     <TextBox Style="{StaticResource TextBox_Style}" 
-                             Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                             Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" 
+                             VerticalAlignment="Center" />
                 </StackPanel>
 
+                <!-- // Coins Short Data Table // -->
                 <DataGrid Style="{StaticResource DataGrid_Style}" 
                           ItemsSource="{Binding FilteredCurrencies}"
                           Name="DataCurrencies"
-                          Grid.Row="1">
+                          Grid.Row="1" 
+                          MouseDoubleClick="DataCurrencies_MouseDoubleClick">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" Width="80" />
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
                         <DataGridTextColumn Header="Price" Binding="{Binding PriceUsd}" Width="200" />
                     </DataGrid.Columns>
                 </DataGrid>
+                
             </Grid>
         </Border>
 

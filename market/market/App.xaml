@@ -11,11 +11,11 @@
 
                 <ResourceDictionary Source="Resources/Styles/Page.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Button.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Text.xaml" />
-                <ResourceDictionary Source="Resources/Styles/TextCaption.xaml" />
+                <ResourceDictionary Source="Resources/Styles/TextBlock.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Image.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Grid.xaml" />
                 <ResourceDictionary Source="Resources/Styles/TextBox.xaml" />
+                <ResourceDictionary Source="Resources/Styles/ListBox.xaml" />
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
 
             </ResourceDictionary.MergedDictionaries>

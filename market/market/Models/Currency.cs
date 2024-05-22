@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace market.Models
 {
@@ -36,5 +37,8 @@ namespace market.Models
 
         [JsonProperty("Vwap24Hr")]
         public string Vwap24Hr { get; set; }
+
+        [JsonProperty("MarketsData")]
+        public ObservableCollection<Market> Markets { get; set; }
     }
 }

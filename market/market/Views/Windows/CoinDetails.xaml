@@ -1,0 +1,133 @@
+﻿<Window x:Class="market.Views.Windows.CoinDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:data="clr-namespace:market.Models"
+        mc:Ignorable="d"
+        Width="500"
+        Height="350" 
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <data:Currency />
+    </Window.DataContext>
+
+    <Grid>
+
+        <!-- // Window Border // -->
+
+        <Border Background="#FF8C352D"
+                CornerRadius="20" />
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="80"/>
+                <RowDefinition  Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource TextCaption_Style}" 
+                           VerticalAlignment="Center">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="Coin Details ({0})">
+                            <Binding Path="Name" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+
+            <Border Grid.Row="1" 
+                    Padding="20">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- // Property Headers // -->
+                    <TextBlock Text="Price:" 
+                               Grid.Row="0"
+                               Grid.Column="0" 
+                               Style="{StaticResource TextCaptionTable_Style}" />
+                    <TextBlock Text="Volume:" 
+                               Grid.Row="1" 
+                               Grid.Column="0" 
+                               Style="{StaticResource TextCaptionTable_Style}" />
+                    <TextBlock Text="Price Change:" 
+                               Grid.Row="2" 
+                               Grid.Column="0" 
+                               Style="{StaticResource TextCaptionTable_Style}" />
+                    <TextBlock Text="Markets:" 
+                               Grid.Row="3" 
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource TextCaptionTable_Style}" />
+
+                    <!-- // Property Values // -->
+                    <TextBlock Text="{Binding PriceUsd}" 
+                               Grid.Row="0" 
+                               Grid.Column="1" 
+                               Style="{StaticResource TextTable_Style}" />
+                    <TextBlock Text="{Binding VolumeUsd24Hr}" 
+                               Grid.Row="1" 
+                               Grid.Column="1" 
+                               Style="{StaticResource TextTable_Style}" />
+                    <TextBlock Text="{Binding ChangePercent24Hr}" 
+                               Grid.Row="2" 
+                               Grid.Column="1" 
+                               Style="{StaticResource TextTable_Style}" />
+
+                    <!-- // Market Information // -->
+                    <ListBox ItemsSource="{Binding Markets}" 
+                             Grid.Row="3" 
+                             Grid.Column="1" 
+                             Grid.RowSpan="3"
+                             Style="{StaticResource ListBox_Style}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" 
+                                            Margin="5">
+                                    <TextBlock Text="{Binding ExchangeId}"
+                                               Style="{StaticResource ListBoxItem_Style}" />
+                                    <TextBlock Text="{Binding BaseSymbol}"
+                                               Style="{StaticResource ListBoxItem_Style}" />
+                                    <TextBlock Style="{StaticResource ListBoxItem_Style}">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat=" {0} ({1}) ">
+                                                <Binding Path="PriceUsd" />
+                                                <Binding Path="VolumePercent" />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </Grid>
+
+
+            </Border>
+
+        </Grid>
+
+        <Button x:Name="CloseApp"
+                Style="{StaticResource ExitApp_Style}" 
+                Click="CloseApp_Click" />
+
+    </Grid>
+    
+</Window>
