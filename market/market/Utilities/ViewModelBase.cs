@@ -3,6 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace market.Utilities
 {
+    /// <summary>
+    /// Represents a view model base.
+    /// </summary>
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

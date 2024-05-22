@@ -9,6 +9,9 @@ using System.Windows;
 
 namespace market.ViewModels
 {
+    /// <summary>
+    /// Represents a currencies view model.
+    /// </summary>
     public class CurrenciesViewModel : ViewModelBase
     {
         private readonly CurrencyData _currencyData;
@@ -17,9 +20,6 @@ namespace market.ViewModels
         private ObservableCollection<Currency> _filteredCurrencies;
         private string _searchQuery;
 
-        /// <summary>
-        /// Full data coins storage.
-        /// </summary>
         public ObservableCollection<Currency> Currencies
         {
             get { return _currencyData.Currencies; }
@@ -31,9 +31,6 @@ namespace market.ViewModels
             }
         }
 
-        /// <summary>
-        /// Filtered coins storage after searching.
-        /// </summary>
         public ObservableCollection<Currency> FilteredCurrencies
         {
             get { return _filteredCurrencies; }
@@ -44,9 +41,6 @@ namespace market.ViewModels
             }
         }
 
-        /// <summary>
-        /// Search query field.
-        /// </summary>
         public string SearchQuery
         {
             get { return _searchQuery; }

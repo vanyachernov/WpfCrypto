@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace market.Utilities
 {
+    /// <summary>
+    /// Represents a relay command.
+    /// </summary>
     class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;

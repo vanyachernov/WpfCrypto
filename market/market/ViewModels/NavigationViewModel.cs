@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace market.ViewModels
 {
+    /// <summary>
+    /// Represents a navigation view model.
+    /// </summary>
     class NavigationViewModel : ViewModelBase
     {
         private object _currentView;

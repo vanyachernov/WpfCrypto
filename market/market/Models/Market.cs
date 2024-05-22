@@ -2,6 +2,9 @@
 
 namespace market.Models
 {
+    /// <summary>
+    /// Represents a market.
+    /// </summary>
     public class Market
     {
         [JsonProperty("exchangeId")]

@@ -3,9 +3,6 @@ using market.Models;
 
 namespace market.Views.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для CoinDetails.xaml
-    /// </summary>
     public partial class CoinDetails : Window
     {
         private Currency _currency;

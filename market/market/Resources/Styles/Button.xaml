@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!-- // Default Navigation Buttons // -->
     <Style x:Key="BtnStyle"
            TargetType="RadioButton">
 
@@ -109,6 +110,7 @@
             Stretch="None" 
             Opacity="1" />
 
+    <!-- // Exit Button // -->
     <Style x:Key="ExitApp_Style"
        TargetType="{x:Type Button}">
 

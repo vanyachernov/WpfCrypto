@@ -3,6 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace market.Models
 {
+    /// <summary>
+    /// Represents a currency data.
+    /// </summary>
     public class CurrencyData
     {
         [JsonProperty("Data")]

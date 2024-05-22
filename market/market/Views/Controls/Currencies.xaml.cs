@@ -1,14 +1,10 @@
 ﻿using market.Models;
 using market.ViewModels;
 using market.Views.Windows;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace market.Views.Controls
 {
-    /// <summary>
-    /// Логика взаимодействия для Currencies.xaml
-    /// </summary>
     public partial class Currencies : UserControl
     {
         private readonly CurrenciesViewModel _currenciesModel;

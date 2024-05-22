@@ -10,6 +10,9 @@ using System.Windows;
 
 namespace market.ViewModels
 {
+    /// <summary>
+    /// Represents a converter view model.
+    /// </summary>
     public class ConverterViewModel : ViewModelBase
     {
         private readonly CurrencyService _currencyService;
@@ -96,9 +99,6 @@ namespace market.ViewModels
             
         }
 
-        /// <summary>
-        /// Full data coins storage.
-        /// </summary>
         public ObservableCollection<Currency> Currencies
         {
             get { return _currencyData.Currencies; }
@@ -125,6 +125,9 @@ namespace market.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initialize a ConverterViewModel instance.
+        /// </summary>
         public ConverterViewModel()
         {
             _currencyData = new CurrencyData
