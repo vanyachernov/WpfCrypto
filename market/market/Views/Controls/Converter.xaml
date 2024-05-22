@@ -3,15 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:market.ViewModels"
+             xmlns:vm="clr-namespace:market.ViewModels" 
              mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=vm:ConverterViewModel}"
              d:DesignWidth="722"
              d:DesignHeight="800"
-             Style="{StaticResource Page_Style}">
-
-    <UserControl.DataContext>
-        <vm:ConverterViewModel />
-    </UserControl.DataContext>
+             Style="{StaticResource Page_Style}" 
+             Loaded="UserControl_Loaded">
 
     <Grid Margin="20,10,20,10">
 
@@ -34,8 +32,8 @@
         </Border>
 
         <Border Grid.Row="1"
-        Padding="20"
-        CornerRadius="0,0,20,20">
+                Padding="20"
+                CornerRadius="0,0,20,20">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFB35844" Offset="0"/>
@@ -43,10 +41,66 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <!-- // Main Page // -->
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- // Property Headers // -->
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="0" 
+                           Text="Amount:" 
+                           VerticalAlignment="Center" 
+                           Style="{StaticResource TextCaptionTable_Style}" />
+                <TextBlock Grid.Row="1" 
+                           Grid.Column="0" 
+                           Text="From:" 
+                           Style="{StaticResource TextCaptionTable_Style}" />   
+                <TextBlock Grid.Row="2" 
+                           Grid.Column="0" 
+                           Text="To:" 
+                           Style="{StaticResource TextCaptionTable_Style}" />
+                <TextBlock Grid.Row="3" 
+                           Grid.Column="0" 
+                           Text="Converted Amount:" 
+                           Style="{StaticResource TextCaptionTable_Style}" />           
                 
 
+                <!-- // Property Values // -->
+                <TextBox Grid.Row="0" 
+                         Grid.Column="1" 
+                         Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" 
+                         Style="{StaticResource TextBox_Style}" 
+                         Background="#FFF" 
+                         Foreground="#000" />           
+                <ComboBox Grid.Row="1" 
+                          Grid.Column="1" 
+                          ItemsSource="{Binding Currencies}" 
+                          DisplayMemberPath="Symbol" 
+                          SelectedItem="{Binding SelectedFromCurrency}"
+                          VerticalAlignment="Center" />
+                <ComboBox Grid.Row="2" 
+                          Grid.Column="1" 
+                          ItemsSource="{Binding Currencies}" 
+                          DisplayMemberPath="Symbol" 
+                          SelectedItem="{Binding SelectedToCurrency}" 
+                          VerticalAlignment="Center" />
+                <TextBlock Grid.Row="3" 
+                           Grid.Column="1" 
+                           Text="{Binding ConvertedAmount}" 
+                           VerticalAlignment="Center" 
+                           Margin="20,0,0,0"
+                           Foreground="#FF558640"
+                           FontSize="16"
+                           FontWeight="Bold"/>
             </Grid>
         </Border>
 
